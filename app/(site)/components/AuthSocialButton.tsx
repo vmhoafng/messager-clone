@@ -1,10 +1,10 @@
 import React from "react";
 import { IconType } from "react-icons";
-interface AuthenticSocialProps {
+interface AuthSocialProps {
   icon: IconType;
   onClick: () => void;
 }
-const AuthenticSocialButton: React.FC<AuthenticSocialProps> = ({
+const AuthSocialButton: React.FC<AuthSocialProps> = ({
   icon: Icon,
   onClick,
 }) => {
@@ -33,4 +33,4 @@ const AuthenticSocialButton: React.FC<AuthenticSocialProps> = ({
     </button>
   );
 };
-export default AuthenticSocialButton;
+export default AuthSocialButton;
