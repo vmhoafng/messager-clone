@@ -7,6 +7,7 @@ const useConversation = () => {
     if (!params?.conversationId) {
       return "";
     }
+    console.log(params);
 
     return params.conversationId as string;
   }, [params?.conversationId]);

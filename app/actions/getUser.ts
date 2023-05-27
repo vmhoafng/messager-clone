@@ -7,7 +7,11 @@ const getUser = async () => {
 
     const users = await prisma.user.findMany({
       orderBy: { createdAt: "desc" },
-      where: {},
+      where: {
+        // NOT: {
+        //   email: session.user.email,
+        // },
+      },
     });
 
     if (!users) return null;
