@@ -9,6 +9,8 @@ import React from "react";
 
 export default function page() {
   const { isOpen } = useConversation();
+  console.log(isOpen);
+  
   return (
     <div
       className={clsx(`lg:pl-80 h-full lg:block`, isOpen ? "block" : "hidden")}
