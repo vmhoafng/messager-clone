@@ -34,7 +34,7 @@ const Avatar: React.FC<AvatarProps> = ({ user, small = false }) => {
           loading="lazy"
         />
       </div>
-      {small === false && isActive && (
+      {small !== true && isActive && (
         <span
           className="
         absolute
