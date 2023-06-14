@@ -87,7 +87,7 @@ const MessageItem: React.FC<MessageItemProps> = ({
           //         text-gray-500"
           //   >{`Seen by:${seenList}`}</div>
           <div className="pt-1">
-            <Avatar user={otheUser} small />
+            <Avatar user={otheUser} small={true} />
           </div>
         )}
       </div>

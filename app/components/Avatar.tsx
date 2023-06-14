@@ -9,7 +9,7 @@ interface AvatarProps {
   small?: boolean;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ user, small }) => {
+const Avatar: React.FC<AvatarProps> = ({ user, small = false }) => {
   const { members } = useActiveList();
   const isActive = members.indexOf(user?.email!) !== -1;
 
@@ -34,7 +34,7 @@ const Avatar: React.FC<AvatarProps> = ({ user, small }) => {
           loading="lazy"
         />
       </div>
-      {!small && isActive && (
+      {small === false && isActive && (
         <span
           className="
         absolute
