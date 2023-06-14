@@ -1,5 +1,5 @@
 import Sidebar from "../components/sidebar/Sidebar";
-import getUsers from "@/app/actions/getUser";
+import getUsers from "@/app/actions/getUsers";
 import UserList from "./components/UserList";
 import { User } from "@prisma/client";
 export default async function UsersLayout({

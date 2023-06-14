@@ -8,6 +8,7 @@ import { useSession } from "next-auth/react";
 import clsx from "clsx";
 import useOtherUser from "@/app/hooks/useOtherUser";
 import Avatar from "@/app/components/Avatar";
+import AvatarGroup from "@/app/components/AvatarGroup";
 
 interface ConversationItemProps {
   data: fullConversationType;
@@ -26,8 +27,8 @@ const ConversationItem: React.FC<ConversationItemProps> = ({
   }, [data.id, router]);
 
   const lastMessage = useMemo(() => {
-    const message = data.messages || [];
-    return message[message.length - 1];
+    const messages = data.messages || [];
+    return messages[messages.length - 1];
   }, [data.messages]);
 
   const userEmail = useMemo(() => {
@@ -43,12 +44,8 @@ const ConversationItem: React.FC<ConversationItemProps> = ({
       return false;
     }
 
-    return (
-      seenArray.filter((user) => {
-        user.email === userEmail;
-      }).length !== 0
-    );
-  }, [lastMessage, userEmail]);
+    return seenArray.filter((user) => user.email === userEmail).length !== 0;
+  }, [userEmail, lastMessage]);
 
   const lastMessageText = useMemo(() => {
     if (lastMessage?.image) {
@@ -79,8 +76,12 @@ const ConversationItem: React.FC<ConversationItemProps> = ({
         selected ? "bg-neutral-100" : "bg-white"
       )}
     >
-      <Avatar user={otheUser} />
-      <div>
+      {data.isGroup ? (
+        <AvatarGroup users={data.users} />
+      ) : (
+        <Avatar user={otheUser} />
+      )}
+      <div className="w-full">
         <div
           className="
               w-full

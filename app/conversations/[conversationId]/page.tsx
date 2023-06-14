@@ -6,6 +6,7 @@ import { Conversation, User } from "@prisma/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Form from "./components/Form";
+import { fullConversationType } from "@/app/types";
 
 interface IParams {
   conversationId: string;
@@ -13,9 +14,7 @@ interface IParams {
 
 const ConversationId = async ({ params }: { params: IParams }) => {
   const conversation = await getConversationById(params.conversationId);
-  const message = await getMessages(params.conversationId);
-  console.log(conversation);
-
+  const messages = await getMessages(params.conversationId);
   if (!conversation) {
     return (
       <div
@@ -47,7 +46,10 @@ const ConversationId = async ({ params }: { params: IParams }) => {
             flex-col"
       >
         <Header conversation={conversation} />
-        <Body message={message} />
+        <Body
+          initialMessage={messages}
+          conversation={conversation as fullConversationType}
+        />
         <Form />
       </div>
     </div>

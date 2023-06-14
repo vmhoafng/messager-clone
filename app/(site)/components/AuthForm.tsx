@@ -3,7 +3,7 @@
 import axios from "axios";
 import { signIn, useSession } from 'next-auth/react';
 import { useCallback, useEffect, useState } from 'react';
-import { BsGithub, BsGoogle  } from 'react-icons/bs';
+import { BsFacebook, BsGithub, BsGoogle  } from 'react-icons/bs';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { useRouter } from "next/navigation";
 
@@ -22,7 +22,7 @@ const AuthForm = () => {
 
   useEffect(() => {
     if (session?.status === 'authenticated') {
-      router.push('/users')
+      router.push('/conversations')
     }
   }, [session?.status, router]);
 
@@ -63,7 +63,7 @@ const AuthForm = () => {
         }
 
         if (callback?.ok) {
-          router.push('/users')
+          router.push('/conversations')
         }
       })
       .catch(() => toast.error('Something went wrong!'))
@@ -81,7 +81,7 @@ const AuthForm = () => {
         }
 
         if (callback?.ok) {
-          router.push('/users')
+          router.push('/conversations')
         }
       })
       .finally(() => setIsLoading(false))
@@ -98,7 +98,7 @@ const AuthForm = () => {
         }
 
         if (callback?.ok) {
-          router.push('/users')
+          router.push('/conversations')
         }
       })
       .finally(() => setIsLoading(false));
@@ -182,6 +182,10 @@ const AuthForm = () => {
             <AuthSocialButton 
               icon={BsGoogle} 
               onClick={() => socialAction('google')} 
+            />
+             <AuthSocialButton 
+              icon={BsFacebook} 
+              onClick={() => socialAction('facebook')} 
             />
           </div>
         </div>

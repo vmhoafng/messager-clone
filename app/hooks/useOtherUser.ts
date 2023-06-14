@@ -11,9 +11,9 @@ const useOtherUser = (
   const otherUser = useMemo(() => {
     // TODO: check if want to use cloud message
     const otherUser = conversation.users
-    // .filter(
-    //   (user) => user.email !== currentUserEmail
-    // );
+    .filter(
+      (user) => user.email !== currentUserEmail
+    );
     return otherUser;
   }, [currentUserEmail, conversation.users]);
   
