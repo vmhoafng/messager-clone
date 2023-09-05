@@ -59,16 +59,6 @@ const UserItem: React.FC<UserItemProps> = ({ data }) => {
               >
                 {data.name}
               </span>
-              <div
-                className="
-                  bg-neutral-100
-                  rounded-full 
-                  p-2 
-                  hover:bg-neutral-200
-         "
-              >
-                <AiOutlineUserAdd />
-              </div>
             </div>
           </div>
         </div>
