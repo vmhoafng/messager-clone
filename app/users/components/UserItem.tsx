@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import Avatar from "@/app/components/Avatar";
 import LoadingModal from "@/app/components/LoadingModal";
-
+import { AiOutlineUserAdd } from "react-icons/ai";
 interface UserItemProps {
   data: User;
 }
@@ -37,7 +37,6 @@ const UserItem: React.FC<UserItemProps> = ({ data }) => {
          space-x-3
          bg-white
          p-3
-         hover:bg-neutral-100
          rounded-lg
          transition
          cursor-pointer"
@@ -60,6 +59,16 @@ const UserItem: React.FC<UserItemProps> = ({ data }) => {
               >
                 {data.name}
               </span>
+              <div
+                className="
+                  bg-neutral-100
+                  rounded-full 
+                  p-2 
+                  hover:bg-neutral-200
+         "
+              >
+                <AiOutlineUserAdd />
+              </div>
             </div>
           </div>
         </div>
