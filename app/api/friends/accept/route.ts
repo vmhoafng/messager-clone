@@ -42,7 +42,7 @@ export async function POST(request: Request) {
           }
           friendsList: {
             // Add the friend ID to the existing friends list
-            push: currentUser.id ,
+            push: currentUser.id 
           },
         },
       });
